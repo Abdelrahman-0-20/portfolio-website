@@ -5,17 +5,14 @@
 
 ---
 
-## 🛠️ Built With
-- Vite
-- TypeScript
-- React
+
 #   Portfolio · SPACESHIP 
 
 The professional editorial rebuild: **Roboto everywhere** (all retro dot-matrix fonts removed), a
 **live procedural galaxy** hero, light/dark **night toggle at the top**, and the full section set a
 recruiter expects — with the Bio-Dome game kept as the recreational deck.
 
-## What defines v3
+## What defines 
 
 - **Typography**: Roboto + Roboto Mono only. No Doto, no VT323, no dot-matrix.
 - **Style**: the "full 3" reference — warm cream day mode, dark editorial blocks, gold accent,
