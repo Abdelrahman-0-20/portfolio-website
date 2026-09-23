@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://main-website-profile-abdelrahman-0-20.vercel.app/sitemap.xml

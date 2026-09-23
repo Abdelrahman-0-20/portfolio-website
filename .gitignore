@@ -1,0 +1,15 @@
+node_modules
+dist
+.npm-cache
+.pw-browsers
+*.local
+.DS_Store
+*.tsbuildinfo
+_pycache__
+_qa/
+
+*.tsbuildinfo
+_qa/
+.pw-browsers
+.npm-cache
+node_modules

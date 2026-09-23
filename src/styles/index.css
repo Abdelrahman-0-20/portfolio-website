@@ -1,0 +1,490 @@
+@import "tailwindcss";
+
+/* ============================================================
+   SHABAN SPACELINES — SPACESHIP VERSION 3
+   Editorial light/dark, Roboto everywhere, gold accent.
+   Retro dot-matrix fonts removed. CRT scanlines + phosphor
+   live only inside the Bio-Dome sim window.
+   ============================================================ */
+@theme {
+  /* day (default) — warm cream, like the reference */
+  --color-bg: #f5eee8;
+  --color-panel: #fdfaf6;
+  --color-block: #171310; /* dark editorial blocks */
+  --color-ink: #1a1512;
+  --color-ink-soft: #6f675f;
+  --color-ink-inverse: #f4efe9; /* text on dark blocks */
+  --color-accent: #b3862a; /* gold */
+  --color-accent-soft: #e8d9b8;
+  --color-line: rgb(26 21 18 / 0.14);
+
+  --color-crt: #0a0b0d;
+  --color-phosphor: #7cfc9a;
+  --color-amber: #ffb454;
+  --color-violet: #b44bff;
+
+  --font-sans: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-vt: "Roboto Mono", ui-monospace, monospace;
+}
+
+/* NIGHT — deep-space editorial */
+[data-theme="terminal"] {
+  color-scheme: dark;
+  --color-bg: #0a0a0c;
+  --color-panel: #141417;
+  --color-block: #0d0d10;
+  --color-ink: #f2f1ec;
+  --color-ink-soft: #9b978e;
+  --color-ink-inverse: #f4efe9;
+  --color-accent: #d8a839;
+  --color-accent-soft: #4a3d1e;
+  --color-line: rgb(242 241 236 / 0.14);
+}
+
+:root {
+  --starfield: #0b0b0d;
+}
+
+/* ---------- base ---------- */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+.overline {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.muted {
+  color: var(--color-ink-soft);
+}
+
+/* rounded editorial card on the page background */
+.vp {
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: 22px;
+  position: relative;
+}
+/* dark editorial block (case studies / galaxy screen / footer strip) */
+.block-dark {
+  background: var(--color-block);
+  color: var(--color-ink-inverse);
+  border-radius: 22px;
+  border: 1px solid rgb(255 255 255 / 0.07);
+  position: relative;
+  overflow: hidden;
+}
+.block-dark .overline {
+  color: var(--color-accent);
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  padding: 0.8rem 1.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn-solid {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+.btn-gold {
+  background: var(--color-accent);
+  color: #fff;
+}
+.btn-ghost {
+  border-color: var(--color-line);
+  color: var(--color-ink);
+  background: transparent;
+}
+.btn-ghost:hover {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+/* ---------- chips ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 0.32em 0.8em;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+  background: var(--color-panel);
+  white-space: nowrap;
+}
+.chip-gold {
+  border-color: transparent;
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+  font-weight: 500;
+}
+[data-theme="terminal"] .chip-gold {
+  background: rgb(216 168 57 / 0.16);
+  color: var(--color-accent);
+}
+.chip-solid {
+  border-color: transparent;
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+/* ---------- nav ---------- */
+.nav-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-ink-soft);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+.nav-link:hover,
+.nav-link[aria-current="true"] {
+  color: var(--color-ink);
+  background: color-mix(in srgb, var(--color-ink) 7%, transparent);
+}
+
+/* ---------- galaxy hero screen ---------- */
+.hero-screen {
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  box-shadow: 0 40px 90px rgb(0 0 0 / 0.35);
+  position: relative;
+}
+.hero-screen::after {
+  /* subtle CRT barrel vignette */
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(130% 100% at 50% 45%, transparent 62%, rgb(0 0 0 / 0.5) 100%);
+}
+.hero-title {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+.gold-line {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* ---------- marquee (tech strip) ---------- */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee-x 34s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ---------- skill chips grid ---------- */
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  padding: 0.45rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+.skill-chip:hover {
+  background: var(--color-ink);
+  color: var(--color-bg);
+  border-color: var(--color-ink);
+}
+
+/* ---------- timeline ---------- */
+.tl-rail {
+  position: relative;
+  padding-left: 1.75rem;
+}
+.tl-rail::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--color-line);
+}
+.tl-item {
+  position: relative;
+  padding-bottom: 2rem;
+}
+.tl-item:last-child {
+  padding-bottom: 0;
+}
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -1.75rem;
+  top: 6px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 3px solid var(--color-accent);
+}
+
+/* ---------- project cards ---------- */
+.proj-card {
+  border: 1px solid var(--color-line);
+  border-radius: 18px;
+  background: var(--color-panel);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.proj-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgb(0 0 0 / 0.12);
+}
+.block-dark .proj-card {
+  background: rgb(255 255 255 / 0.03);
+  border-color: rgb(255 255 255 / 0.09);
+}
+.block-dark .proj-card:hover {
+  box-shadow: 0 24px 50px rgb(0 0 0 / 0.5);
+}
+
+/* ---------- forms ---------- */
+.field {
+  width: 100%;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background: var(--color-panel);
+  color: var(--color-ink);
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease;
+}
+.field:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+.field::placeholder {
+  color: var(--color-ink-soft);
+}
+
+/* ---------- departures table (fleet manifest) — clean editorial restyle ---------- */
+.dep-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+.dep-table th,
+.dep-table td {
+  border-left: 1px solid var(--color-line);
+  text-align: left;
+  vertical-align: top;
+}
+.dep-table th:first-child,
+.dep-table td:first-child {
+  border-left: none;
+}
+.dep-table thead th {
+  border-bottom: 2px solid var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.dep-table thead th button {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: inherit;
+}
+.dep-table tbody td {
+  font-size: 0.92rem;
+  padding: 0.7rem 0.9rem;
+  border-top: 1px solid var(--color-line);
+}
+.dep-table tbody tr.dep-row {
+  cursor: pointer;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+.dep-table tbody tr.dep-row:hover,
+.dep-table tbody tr.dep-row[data-open="true"] {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+.dep-table tbody tr.dep-row:hover .dep-dim,
+.dep-table tbody tr.dep-row[data-open="true"] .dep-dim {
+  color: color-mix(in srgb, var(--color-bg) 72%, transparent);
+}
+.dep-sort {
+  display: inline-block;
+  margin-left: 0.35em;
+  opacity: 0.7;
+}
+.dep-table tbody td.dep-detail {
+  border-left: none;
+}
+.dep-table tbody tr.dep-row:hover .chip-solid {
+  background: var(--color-bg);
+  color: var(--color-ink);
+}
+.dep-table tbody tr.dep-row:hover .chip {
+  border-color: currentColor;
+}
+.dep-table tbody tr.dep-row:hover .mono-link {
+  border-color: currentColor;
+  color: inherit;
+}
+.dep-detail {
+  background: color-mix(in srgb, var(--color-ink) 4%, transparent);
+}
+
+.mono-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  border: 1px solid var(--color-ink);
+  border-radius: 8px;
+  padding: 0.3em 0.7em;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+.mono-link:hover {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+
+/* ---------- CRT window (Bio-Dome sim only) ---------- */
+.crt-bezel {
+  background: linear-gradient(180deg, #23261f 0%, #191b16 60%, #121410 100%);
+  border-radius: 14px;
+  border: 1px solid rgb(0 0 0 / 0.7);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.08),
+    0 14px 34px rgb(0 0 0 / 0.45);
+}
+.crt-screen {
+  position: relative;
+  background: var(--color-crt);
+  color: var(--color-phosphor);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 0 46px rgb(0 0 0 / 0.85), inset 0 0 12px rgb(124 252 154 / 0.06);
+}
+.crt-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 50% 45%, transparent 60%, rgb(0 0 0 / 0.42) 100%),
+    repeating-linear-gradient(0deg, rgb(0 0 0 / 0.07) 0 1px, transparent 1px 3px);
+}
+.glow {
+  text-shadow: 0 0 6px rgb(124 252 154 / 0.35);
+}
+
+/* ---------- one-time page power-on flicker ---------- */
+@keyframes crt-power-on {
+  0% {
+    opacity: 0.25;
+    filter: brightness(2.2);
+  }
+  60% {
+    opacity: 1;
+    filter: brightness(1.05);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
+.crt-power-on {
+  animation: crt-power-on 0.5s ease-out both;
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+}
+
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--color-ink) 40%, transparent) transparent;
+  }
+}

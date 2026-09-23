@@ -1,0 +1,10 @@
+{
+  "name": "SHABAN SPACELINES // ML FLEET COMMAND",
+  "short_name": "SPACELINES",
+  "description": "Retro-futuristic mission-control portfolio of Abdelrahman Shaban — Data Scientist.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101014",
+  "theme_color": "#16161A",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
