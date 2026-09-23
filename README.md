@@ -1,6 +1,6 @@
 # Portfolio Website
 
-## 🚀 Live Demo
+##  Live Demo
 **[Click here to view the live application](https://portfolio-website-red-one-18.vercel.app/)**
 
 ---
