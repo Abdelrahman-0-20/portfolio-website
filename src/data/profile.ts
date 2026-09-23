@@ -382,7 +382,7 @@ export const projectArchive: ArchiveProject[] = [
 
 /** Operator card intro (hero, right side) */
 export const heroIntro =
-  'Senior Data Scientist focused on scalable, production ML deployment. Proven track record of shipping production-grade models and maintaining high reproducibility across experiments.'
+  ' Data Scientist focused on scalable, production ML deployment. Proven track record of shipping production-grade models and maintaining high reproducibility across experiments.'
 
 /** Model production list — labels map to verified repos */
 export const modelProduction = [
