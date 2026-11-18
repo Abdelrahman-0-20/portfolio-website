@@ -17,7 +17,7 @@ recruiter expects — with the Bio-Dome game kept as the recreational deck.
 - **Typography**: Roboto + Roboto Mono only. No Doto, no VT323, no dot-matrix.
 - **Style**: the "full 3" reference — warm cream day mode, dark editorial blocks, gold accent,
   rounded panels, overline labels, a galaxy hero screen (pure `<canvas>`, no image assets).
-- **Night mode**: ☀/☾ icon chip fixed at the top of every scroll position (`i` key also toggles);
+- **Night mode**: / icon chip fixed at the top of every scroll position (`i` key also toggles);
   day is default, night is deep-space editorial.
 - **Hero (Home)**: name, one-line title (`Computer Science Professional & Data Analyst`),
   **View Projects** and **Download CV** call-to-action buttons, live galaxy, ASCII operator card,
